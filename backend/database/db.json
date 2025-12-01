@@ -1,0 +1,99 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "firstName": "Arjun",
+      "email": "e@e.com",
+      "password": "123",
+      "taskCounts": {
+        "active": 2,
+        "newTask": 1,
+        "completed": 1,
+        "failed": 0
+      },
+      "tasks": [
+        {
+          "id": "1",
+          "active": true,
+          "newTask": true,
+          "completed": false,
+          "failed": false,
+          "taskTitle": "Update website",
+          "taskDescription": "Revamp the homepage design",
+          "taskDate": "2025-07-20",
+          "endDate": "2025-10-22",
+          "category": "Design"
+        },
+        {
+          "id": "2",
+          "active": false,
+          "newTask": false,
+          "completed": true,
+          "failed": false,
+          "taskTitle": "Client meeting",
+          "taskDescription": "Discuss project requirements",
+          "taskDate": "2025-07-10",
+          "endDate": "2025-07-22",
+          "category": "Meeting"
+        },
+        {
+          "id": "3",
+          "active": true,
+          "newTask": false,
+          "completed": false,
+          "failed": false,
+          "taskTitle": "Fix bugs",
+          "taskDescription": "Resolve bugs reported in issue tracker",
+          "taskDate": "2025-07-14",
+          "endDate": "2025-07-22",
+          "category": "Development"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "firstName": "Sneha",
+      "email": "employee2@example.com",
+      "password": "123",
+      "taskCounts": {
+        "active": 1,
+        "newTask": 0,
+        "completed": 1,
+        "failed": 0
+      },
+      "tasks": [
+        {
+          "id": "1",
+          "active": true,
+          "newTask": false,
+          "completed": false,
+          "failed": false,
+          "taskTitle": "Database optimization",
+          "taskDescription": "Optimize queries for better performance",
+          "taskDate": "2024-10-11",
+          "endDate": "2024-10-15",
+          "category": "Development"
+        },
+        {
+          "id": "2",
+          "active": false,
+          "newTask": false,
+          "completed": true,
+          "failed": false,
+          "taskTitle": "Design new feature",
+          "taskDescription": "Create mockups for the new feature",
+          "taskDate": "2024-10-09",
+          "endDate": "2024-10-15",
+          "category": "Design"
+        }
+      ]
+    }
+  ],
+  "admin": [
+    {
+      "id": "1",
+      "email": "admin@example.com",
+      "password": "123"
+    }
+  ]
+}
