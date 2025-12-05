@@ -1,5 +1,8 @@
 // In src/services/api.js
-const API_BASE_URL = 'http://localhost:5000';
+// Force production to use the Render backend; override via VITE_API_BASE_URL for local dev.
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, '') ||
+  'https://ems-master-deft.onrender.com';
 const MAX_RETRIES = 3;
 const RETRY_DELAY = 1000; // 1 second
 
