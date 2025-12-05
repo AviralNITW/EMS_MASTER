@@ -123,12 +123,12 @@ const FailedTask = ({ data, isExpired, isRejected = false }) => {
   // Show error state
   if (error) {
     return (
-      <div className="flex-shrink-0 min-h-[300px] w-[300px] p-5 bg-red-100 border-l-4 border-red-500 rounded-xl">
-        <h3 className="text-red-700 font-bold">Error</h3>
-        <p className="text-red-600 text-sm mt-2">
+      <div className="flex-shrink-0 min-h-[280px] sm:min-h-[300px] w-full sm:w-[300px] p-4 sm:p-5 bg-red-100 border-l-4 border-red-500 rounded-xl">
+        <h3 className="text-red-700 font-bold text-sm sm:text-base">Error</h3>
+        <p className="text-red-600 text-xs sm:text-sm mt-2">
           {error.message || 'Failed to load task details'}
         </p>
-        <button
+        <button 
           onClick={() => setError(null)}
           className="mt-4 text-xs bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
         >
@@ -141,7 +141,7 @@ const FailedTask = ({ data, isExpired, isRejected = false }) => {
   // Show loading state
   if (isUpdating) {
     return (
-      <div className="flex-shrink-0 min-h-[300px] w-[300px] p-5 bg-white bg-opacity-70 rounded-xl flex items-center justify-center">
+      <div className="flex-shrink-0 min-h-[280px] sm:min-h-[300px] w-full sm:w-[300px] p-4 sm:p-5 bg-white bg-opacity-70 rounded-xl flex items-center justify-center">
         <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-red-500"></div>
       </div>
     );
@@ -149,16 +149,16 @@ const FailedTask = ({ data, isExpired, isRejected = false }) => {
 
   // For manually failed tasks (not expired), show with retry option
   return (
-    <div className='flex-shrink-0 min-h-[300px] w-[300px] p-5 bg-red-400 shadow-md rounded-xl border border-gray-200 hover:shadow-lg transition-shadow duration-200'>
-      <div className='flex justify-between items-start'>
-        <div className='mt-4 '>
-          <h3 className='bg-red-100 text-red-800 text-sm px-3 py-1 rounded-full inline-block'>
+    <div className='flex-shrink-0 min-h-[280px] sm:min-h-[300px] w-full sm:w-[300px] p-4 sm:p-5 bg-red-400 shadow-md rounded-xl border border-gray-200 hover:shadow-lg transition-shadow duration-200'>
+      <div className='flex flex-col sm:flex-row justify-between items-start gap-2 sm:gap-0'>
+        <div className='mt-0 sm:mt-4'>
+          <h3 className='bg-red-100 text-red-800 text-xs sm:text-sm px-3 py-1 rounded-full inline-block'>
             {data?.category || data?.taskCategory || 'Uncategorized'}
           </h3>
         </div>
 
         {/* Due Date and Time Left */}
-        <div className='text-right'>
+        <div className='text-left sm:text-right'>
           <div className='text-xs text-gray-500'>Due: {data?.endDate ? formatDate(data.endDate) : 'No deadline'}</div>
           <div className='text-xs font-medium text-red-600 mt-1'>{timeLeft || 'Expired'}</div>
         </div>
@@ -168,7 +168,7 @@ const FailedTask = ({ data, isExpired, isRejected = false }) => {
 
 
       {/* Task Title */}
-      <h2 className='mt-5 text-lg font-semibold text-white'>
+      <h2 className='mt-4 sm:mt-5 text-base sm:text-lg font-semibold text-white'>
         {data?.taskTitle || data?.title || 'Untitled Task'}
       </h2>
 
@@ -178,7 +178,7 @@ const FailedTask = ({ data, isExpired, isRejected = false }) => {
       </p>
 
       {/* Footer with Expired Button */}
-      <div className='mt-6 pt-3 border-t border-gray-100'>
+      <div className='mt-4 sm:mt-6 pt-3 border-t border-gray-100'>
         <button
           disabled
           className="w-full py-2 px-4 bg-red-700 text-white rounded-md hover:bg-red-600 transition-colors  disabled:cursor-not-allowed flex items-center justify-center"

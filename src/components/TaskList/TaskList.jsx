@@ -8,8 +8,8 @@ import CompleteTask from './CompleteTask';
 import FailedTask from './FailedTask';
 
 // Styled components for consistency
-const sectionTitleStyles = 'text-xl font-bold m-10';
-const cardContainerStyles = 'overflow-x-auto flex items-center justify-start gap-5 flex-nowrap w-full py-1 mt-10';
+const sectionTitleStyles = 'text-lg sm:text-xl font-bold m-4 sm:m-10 px-4 sm:px-0';
+const cardContainerStyles = 'overflow-x-auto flex items-center justify-start gap-3 sm:gap-5 flex-nowrap w-full py-1 mt-4 sm:mt-10 px-4 sm:px-0';
 
 // Memoized task components to prevent unnecessary re-renders
 const MemoizedNewTask = memo(NewTask);
@@ -259,7 +259,7 @@ const TaskList = ({ data, isLoading, error, onTaskUpdate }) => {
       {pendingVerificationTasks.length > 0 && (
         <section>
           <h1 className={`${sectionTitleStyles} text-yellow-600`}>Pending Verification</h1>
-          <p className="text-gray-500 text-sm mb-4 px-10">
+          <p className="text-gray-500 text-xs sm:text-sm mb-4 px-4 sm:px-10">
             These tasks are awaiting admin verification. You'll be notified once they're reviewed.
           </p>
           <div className={cardContainerStyles}>
@@ -294,7 +294,7 @@ const TaskList = ({ data, isLoading, error, onTaskUpdate }) => {
       {rejectedTasks.length > 0 && (
         <section>
           <h1 className={`${sectionTitleStyles} text-orange-600`}>Rejected Tasks - Needs Resubmission</h1>
-          <div className='mb-2 px-10 text-sm text-orange-700'>
+          <div className='mb-2 px-4 sm:px-10 text-xs sm:text-sm text-orange-700'>
             These tasks were rejected by the admin. Please review the feedback and resubmit.
           </div>
           <div className={cardContainerStyles}>
@@ -313,7 +313,7 @@ const TaskList = ({ data, isLoading, error, onTaskUpdate }) => {
       {failedTasks.length > 0 && (
         <section>
           <h1 className={`${sectionTitleStyles} text-red-600`}>Failed/Expired Tasks</h1>
-          <div className='mb-2 px-10 text-sm text-red-700'>
+          <div className='mb-2 px-4 sm:px-10 text-xs sm:text-sm text-red-700'>
             These tasks have either failed or expired and can no longer be completed.
           </div>
           <div className={cardContainerStyles}>

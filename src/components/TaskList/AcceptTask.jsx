@@ -280,9 +280,9 @@ const AcceptTask = ({ data, onTaskUpdate }) => {
   // Show error state
   if (localState.error) {
     return (
-      <div className="flex-shrink-0 min-h-[300px] w-[300px] p-5 bg-red-100 border-l-4 border-red-500 rounded-xl">
-        <h3 className="text-red-700 font-bold">Error</h3>
-        <p className="text-red-600 text-sm mt-2">
+      <div className="flex-shrink-0 min-h-[280px] sm:min-h-[300px] w-full sm:w-[300px] p-4 sm:p-5 bg-red-100 border-l-4 border-red-500 rounded-xl">
+        <h3 className="text-red-700 font-bold text-sm sm:text-base">Error</h3>
+        <p className="text-red-600 text-xs sm:text-sm mt-2">
           {localState.error.message || 'Failed to load task details'}
         </p>
         <button
@@ -298,7 +298,7 @@ const AcceptTask = ({ data, onTaskUpdate }) => {
   // Show loading state
   if (localState.loading || localState.isUpdating) {
     return (
-      <div className="flex-shrink-0 min-h-[300px] w-[300px] p-5 bg-white bg-opacity-70 rounded-xl flex items-center justify-center">
+      <div className="flex-shrink-0 min-h-[280px] sm:min-h-[300px] w-full sm:w-[300px] p-4 sm:p-5 bg-white bg-opacity-70 rounded-xl flex items-center justify-center">
         <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
       </div>
     );
@@ -312,9 +312,9 @@ const AcceptTask = ({ data, onTaskUpdate }) => {
   const currentStatus = getTaskStatus(data);
 
   return (
-    <div className="flex-shrink-0 min-h-[300px] w-[300px] p-5 bg-white border-l-4 border-blue-500 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200">
+    <div className="flex-shrink-0 min-h-[280px] sm:min-h-[300px] w-full sm:w-[300px] p-4 sm:p-5 bg-white border-l-4 border-blue-500 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200">
       {/* Task header */}
-      <div className="flex justify-between items-start mb-3">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-start gap-2 sm:gap-0 mb-3">
         <h3 className="font-medium text-gray-800">{data.taskTitle}</h3>
         <span className={`text-xs px-2 py-1 rounded-full ${
           data.priority === 'high' ? 'bg-red-100 text-red-800' :
@@ -326,7 +326,7 @@ const AcceptTask = ({ data, onTaskUpdate }) => {
       </div>
 
       {/* Task description */}
-      <p className="text-sm text-gray-600 mb-4">{data.taskDescription || 'No description provided.'}</p>
+      <p className="text-xs sm:text-sm text-gray-600 mb-4">{data.taskDescription || 'No description provided.'}</p>
 
       {/* Task details */}
       <div className="space-y-2 text-xs text-gray-500 mb-4">

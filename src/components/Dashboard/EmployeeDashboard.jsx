@@ -243,13 +243,13 @@ const EmployeeDashboard = (props) => {
   }
 
   return (
-    <div className="p-10 bg-[#1C1C1C] min-h-screen">
+    <div className="p-4 sm:p-6 md:p-10 bg-[#1C1C1C] min-h-screen">
       <Header changeUser={props.changeUser} data={employeeData} />
       <TaskListNumbers data={employeeData} />
       <TaskList data={employeeData} onTaskUpdate={handleTaskUpdate} />
       
       {isLoading && (
-        <div className="fixed top-4 right-4 bg-blue-500 text-white px-4 py-2 rounded">
+        <div className="fixed top-4 right-4 bg-blue-500 text-white px-3 sm:px-4 py-2 rounded text-sm sm:text-base">
           Updating tasks...
         </div>
       )}

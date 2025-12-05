@@ -94,9 +94,9 @@ const CompleteTask = ({ data, onTaskUpdate }) => {
   // Show error state
   if (error) {
     return (
-      <div className="flex-shrink-0 min-h-[300px] w-[300px] p-5 bg-red-100 border-l-4 border-red-500 rounded-xl">
-        <h3 className="text-red-700 font-bold">Error</h3>
-        <p className="text-red-600 text-sm mt-2">
+      <div className="flex-shrink-0 min-h-[280px] sm:min-h-[300px] w-full sm:w-[300px] p-4 sm:p-5 bg-red-100 border-l-4 border-red-500 rounded-xl">
+        <h3 className="text-red-700 font-bold text-sm sm:text-base">Error</h3>
+        <p className="text-red-600 text-xs sm:text-sm mt-2">
           {error.message || 'Failed to load task details'}
         </p>
         <button 
@@ -112,15 +112,15 @@ const CompleteTask = ({ data, onTaskUpdate }) => {
   // Show loading state
   if (isUpdating) {
     return (
-      <div className="flex-shrink-0 min-h-[300px] w-[300px] p-5 bg-white bg-opacity-70 rounded-xl flex items-center justify-center">
+      <div className="flex-shrink-0 min-h-[280px] sm:min-h-[300px] w-full sm:w-[300px] p-4 sm:p-5 bg-white bg-opacity-70 rounded-xl flex items-center justify-center">
         <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
       </div>
     );
   }
 
   return (
-    <div className='flex-shrink-0 min-h-[300px] w-[300px] p-5 bg-white shadow-md rounded-xl border border-gray-200 hover:shadow-lg transition-shadow duration-200'>
-      <div className='flex justify-between items-start'>
+    <div className='flex-shrink-0 min-h-[280px] sm:min-h-[300px] w-full sm:w-[300px] p-4 sm:p-5 bg-white shadow-md rounded-xl border border-gray-200 hover:shadow-lg transition-shadow duration-200'>
+      <div className='flex flex-col sm:flex-row justify-between items-start gap-2 sm:gap-0'>
         <span className={`px-2 py-1 text-xs font-medium rounded-full ${
           data.priority === 'high' ? 'bg-red-100 text-red-800' :
           data.priority === 'medium' ? 'bg-yellow-100 text-yellow-800' :
@@ -128,19 +128,19 @@ const CompleteTask = ({ data, onTaskUpdate }) => {
         }`}>
           {data.priority || 'Normal'} Priority
         </span>
-        <div className='text-right'>
+        <div className='text-left sm:text-right'>
           <div className='text-xs text-gray-500'>Completed: {formatDate(data.completedAt)}</div>
           <div className='text-xs text-gray-500 mt-1'>Due: {formatDate(data.endDate)}</div>
         </div>
       </div>
       
-      <div className='mt-4'>
-        <h3 className='bg-green-600 text-white text-sm px-3 py-1 rounded-full inline-block'>
+      <div className='mt-3 sm:mt-4'>
+        <h3 className='bg-green-600 text-white text-xs sm:text-sm px-3 py-1 rounded-full inline-block'>
           {data.category || 'Uncategorized'}
         </h3>
       </div>
       
-      <h2 className='mt-3 text-lg font-semibold text-gray-800'>
+      <h2 className='mt-3 text-base sm:text-lg font-semibold text-gray-800'>
         {data.taskTitle || 'Untitled Task'}
       </h2>
       
@@ -148,15 +148,15 @@ const CompleteTask = ({ data, onTaskUpdate }) => {
         {data.taskDescription || 'No description provided.'}
       </p>
       
-      <div className='mt-6 pt-3 border-t border-gray-100'>
-        <div className='flex justify-between items-center'>
+      <div className='mt-4 sm:mt-6 pt-3 border-t border-gray-100'>
+        <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0'>
           <span className='text-xs text-green-600 font-medium'>
             ✓ Completed
           </span>
           <button
             onClick={handleReopenTask}
             disabled={isUpdating}
-            className='text-xs text-blue-600 hover:text-blue-800 font-medium'
+            className='text-xs text-blue-600 hover:text-blue-800 font-medium px-2 py-1 -mx-2 sm:mx-0'
           >
             {isUpdating ? 'Reopening...' : 'Reopen Task'}
           </button>
