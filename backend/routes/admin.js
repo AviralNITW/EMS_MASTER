@@ -394,6 +394,73 @@ router.post('/login', [
   }
 });
 
+// POST /api/admin/:adminId/employees - Create a new employee for an admin
+router.post('/:adminId/employees', [
+  body('email').isEmail().withMessage('Valid email is required'),
+  body('password').isLength({ min: 3 }).withMessage('Password must be at least 3 characters')
+], async (req, res) => {
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { adminId } = req.params;
+    const { firstName, email, password, address } = req.body;
+
+    // Validate adminId
+    if (!mongoose.Types.ObjectId.isValid(adminId)) {
+      return res.status(400).json({ message: 'Invalid admin ID format' });
+    }
+
+    // Find the admin
+    const admin = await Admin.findById(adminId);
+    if (!admin) {
+      return res.status(404).json({ message: 'Admin not found' });
+    }
+
+    // Check if employee with this email already exists in this admin's employees
+    const existingEmployee = admin.employees.find(emp => emp.email === email);
+    if (existingEmployee) {
+      return res.status(400).json({ message: 'Employee with this email already exists' });
+    }
+
+    // Create new employee
+    const newEmployee = {
+      firstName: firstName || '',
+      email: email.toLowerCase().trim(),
+      password: password,
+      address: address || '',
+      tasks: [],
+      taskCounts: {
+        newTask: 0,
+        active: 0,
+        completed: 0,
+        failed: 0
+      }
+    };
+
+    // Add employee to admin
+    admin.employees.push(newEmployee);
+    await admin.save();
+
+    // Get the newly created employee (it will have an _id after save)
+    const createdEmployee = admin.employees[admin.employees.length - 1];
+
+    // Return employee without password
+    const employeeResponse = createdEmployee.toObject();
+    delete employeeResponse.password;
+
+    res.status(201).json(employeeResponse);
+  } catch (error) {
+    console.error('Error creating employee:', error);
+    res.status(500).json({ 
+      message: 'Server error', 
+      error: error.message 
+    });
+  }
+});
+
 // PUT /api/admin/:id - Update admin
 router.put('/:id', async (req, res) => {
   try {

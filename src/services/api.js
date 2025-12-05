@@ -375,6 +375,38 @@ export const adminAPI = {
 
 // Employee API
 export const employeeAPI = {
+  // Create a new employee (requires adminId from context)
+  create: async (employeeData) => {
+    // Get adminId from localStorage
+    try {
+      const storedUser = localStorage.getItem('user');
+      if (!storedUser) {
+        throw new Error('User not authenticated');
+      }
+      const user = JSON.parse(storedUser);
+      let adminId;
+      if (user?.userType === 'admin') {
+        adminId = user?._id;
+      } else if (user?.userType === 'employee') {
+        adminId = user?.adminId || user?.admin?._id;
+      } else {
+        adminId = user?.adminId || user?.admin?._id || user?._id;
+      }
+      
+      if (!adminId) {
+        throw new Error('Admin ID not found');
+      }
+      
+      return apiRequest(`/admin/${adminId}/employees`, {
+        method: 'POST',
+        body: employeeData,
+      });
+    } catch (error) {
+      console.error('Error in employeeAPI.create:', error);
+      throw error;
+    }
+  },
+  
   // Get a single employee by ID
   getById: (employeeId) =>
     apiRequest(`/employees/${employeeId}`, {
