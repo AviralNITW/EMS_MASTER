@@ -52,7 +52,7 @@ const AddMember = () => {
                         <input
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
-                            className='text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4'
+                            className='text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4 text-white placeholder-gray-500'
                             type="text"
                             placeholder='John Doe'
                             required
@@ -63,7 +63,7 @@ const AddMember = () => {
                         <input
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className='text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4'
+                            className='text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4 text-white placeholder-gray-500'
                             type="email"
                             placeholder='john@example.com'
                             required
@@ -74,7 +74,7 @@ const AddMember = () => {
                         <input
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className='text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4'
+                            className='text-sm py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4 text-white placeholder-gray-500'
                             type="password"
                             placeholder='Enter password'
                             required
@@ -87,7 +87,7 @@ const AddMember = () => {
                     <textarea
                         value={address}
                         onChange={(e) => setAddress(e.target.value)}
-                        className='w-full h-44 text-sm py-2 px-4 rounded outline-none bg-transparent border-[1px] border-gray-400'
+                        className='w-full h-44 text-sm py-2 px-4 rounded outline-none bg-transparent border-[1px] border-gray-400 text-white placeholder-gray-500'
                         placeholder='Enter full address'
                         required
                     ></textarea>

@@ -91,7 +91,6 @@ const TaskVerificationSimple = ({ adminData, onDataUpdate }) => {
 
   if (error) return (
     <div>
-      <h2 className="text-xl font-semibold mb-4">Task Verification</h2>
       <div className="bg-red-50 border border-red-200 rounded-lg p-6">
         <div className="text-red-600 mb-3">{error}</div>
         <button onClick={() => setError('')} className="px-3 py-1.5 text-sm bg-blue-600 text-white rounded">Dismiss</button>
@@ -102,7 +101,6 @@ const TaskVerificationSimple = ({ adminData, onDataUpdate }) => {
   if (!adminData && !currentAdmin) {
     return (
       <div>
-        <h2 className="text-xl font-semibold mb-4">Task Verification</h2>
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center">
           <div className="text-gray-500 text-lg">Loading verification data...</div>
         </div>
@@ -112,7 +110,6 @@ const TaskVerificationSimple = ({ adminData, onDataUpdate }) => {
 
   if (tasks.length === 0) return (
     <div>
-      <h2 className="text-xl font-semibold mb-4">Task Verification</h2>
       <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center">
         <div className="text-gray-500 text-lg">No tasks pending verification</div>
         <div className="text-gray-400 text-sm mt-2">All submitted tasks have been reviewed</div>
@@ -125,7 +122,6 @@ const TaskVerificationSimple = ({ adminData, onDataUpdate }) => {
 
   return (
     <div>
-      <h2 className="text-xl font-semibold mb-4">Task Verification</h2>
       <div className="space-y-4">
         {tasks.map(task => (
           <div key={task._id} className="border rounded-lg p-4 bg-gray-50">
