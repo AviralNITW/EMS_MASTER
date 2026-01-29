@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState, useCallback, useRef } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import AuthWrapper from './components/Auth/AuthWrapper'
 import EmployeeDashboard from './components/Dashboard/EmployeeDashboard'
 import AdminDashboard from './components/Dashboard/AdminDashboard'
+import LandingPage from './components/LandingPage'
 import { AuthContext } from './context/AuthProvider'
 
 const App = () => {
@@ -14,14 +16,14 @@ const App = () => {
   // Use useCallback to memoize the user loading logic
   const loadUserFromStorage = useCallback(() => {
     const storedUser = localStorage.getItem('user')
-    
+
     if (storedUser) {
       try {
-      const userData = JSON.parse(storedUser)
-       
-      setUser(prevUser => (prevUser === (userData.userType || 'admin') ? prevUser : (userData.userType || 'admin')))
-      setLoggedInUserData(prevData => JSON.stringify(prevData) === JSON.stringify(userData) ? prevData : userData)
-      return userData
+        const userData = JSON.parse(storedUser)
+
+        setUser(prevUser => (prevUser === (userData.userType || 'admin') ? prevUser : (userData.userType || 'admin')))
+        setLoggedInUserData(prevData => JSON.stringify(prevData) === JSON.stringify(userData) ? prevData : userData)
+        return userData
       } catch (error) {
         console.error('Error parsing stored user:', error)
         localStorage.removeItem('user')
@@ -51,7 +53,7 @@ const App = () => {
     // Handle successful authentication
     setUser(userType)
     setLoggedInUserData(userData)
-    
+
     // Create a complete user object with all necessary fields
     const completeUserData = {
       ...userData,
@@ -59,13 +61,13 @@ const App = () => {
       // Ensure we have a consistent _id field
       _id: userData._id || userData.user?._id
     }
-    
+
     // Store user data in localStorage and update context
     updateCurrentUser(completeUserData)
-    
+
     // For backward compatibility, also store in old format
     localStorage.setItem('loggedInUser', JSON.stringify({ role: userType, data: userData }))
-    
+
     // If admin login, refresh employee data
     if (userType === 'admin' && refreshEmployees) {
       refreshEmployees()
@@ -90,29 +92,46 @@ const App = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      
-      {!user ? (
-        <AuthWrapper onAuthSuccess={handleAuthSuccess} />
-      ) : user === 'admin' ? (
-        <AdminDashboard 
-          userData={userData} 
-          setUserData={setUserData} 
-          refreshEmployees={refreshEmployees}
-          updateCurrentUser={updateCurrentUser}
-          changeUser={handleLogout}
-        />
-      ) : (
-        <EmployeeDashboard 
-          userData={userData} 
-          setUserData={setUserData} 
-          refreshEmployees={refreshEmployees}
-          updateCurrentUser={updateCurrentUser}
-          changeUser={handleLogout}
-          data={loggedInUserData}
-        />
-      )}
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<LandingPage onAuthSuccess={handleAuthSuccess} />} />
+        <Route path="/login" element={
+          !user ? (
+            <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+              <AuthWrapper onAuthSuccess={handleAuthSuccess} />
+            </div>
+          ) : (
+            <Navigate to="/dashboard" replace />
+          )
+        } />
+        <Route path="/dashboard" element={
+          user ? (
+            <div className="min-h-screen bg-gray-100">
+              {user === 'admin' ? (
+                <AdminDashboard
+                  userData={userData}
+                  setUserData={setUserData}
+                  refreshEmployees={refreshEmployees}
+                  updateCurrentUser={updateCurrentUser}
+                  changeUser={handleLogout}
+                />
+              ) : (
+                <EmployeeDashboard
+                  userData={userData}
+                  setUserData={setUserData}
+                  refreshEmployees={refreshEmployees}
+                  updateCurrentUser={updateCurrentUser}
+                  changeUser={handleLogout}
+                  data={loggedInUserData}
+                />
+              )}
+            </div>
+          ) : (
+            <Navigate to="/login" replace />
+          )
+        } />
+      </Routes>
+    </>
   )
 }
 

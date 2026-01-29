@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Login = ({handleLogin, handleEmployeeLogin, switchToSignup}) => {
+const Login = ({ handleLogin, handleEmployeeLogin, switchToSignup }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isLoading, setIsLoading] = useState(false)
@@ -25,7 +25,7 @@ const Login = ({handleLogin, handleEmployeeLogin, switchToSignup}) => {
     }
 
     return (
-        <div className='flex h-screen w-screen items-center justify-center bg-gray-50'>
+        <div className='flex items-center justify-center w-full'>
             <div className='border-2 rounded-xl border-emerald-600 p-8 bg-white shadow-lg max-w-md w-full mx-4'>
                 <div className='text-center mb-6'>
                     <h2 className='text-2xl font-bold text-gray-800 mb-2'>
@@ -41,65 +41,62 @@ const Login = ({handleLogin, handleEmployeeLogin, switchToSignup}) => {
                     <button
                         type="button"
                         onClick={() => setLoginType('admin')}
-                        className={`flex-1 py-2 px-4 rounded-full text-sm font-medium transition-colors ${
-                            loginType === 'admin'
+                        className={`flex-1 py-2 px-4 rounded-full text-sm font-medium transition-colors ${loginType === 'admin'
                                 ? 'bg-emerald-600 text-white'
                                 : 'text-gray-600 hover:text-gray-800'
-                        }`}
+                            }`}
                     >
                         Admin
                     </button>
                     <button
                         type="button"
                         onClick={() => setLoginType('employee')}
-                        className={`flex-1 py-2 px-4 rounded-full text-sm font-medium transition-colors ${
-                            loginType === 'employee'
+                        className={`flex-1 py-2 px-4 rounded-full text-sm font-medium transition-colors ${loginType === 'employee'
                                 ? 'bg-emerald-600 text-white'
                                 : 'text-gray-600 hover:text-gray-800'
-                        }`}
+                            }`}
                     >
                         Employee
                     </button>
                 </div>
-                
-                <form 
+
+                <form
                     onSubmit={submitHandler}
                     className='flex flex-col space-y-4'
                 >
-                    <input 
+                    <input
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        required 
-                        className='w-full outline-none bg-transparent border-2 border-emerald-600 font-medium text-lg py-3 px-4 rounded-full placeholder:text-gray-400' 
-                        type="email" 
-                        placeholder='Enter your email' 
+                        required
+                        className='w-full outline-none bg-transparent border-2 border-emerald-600 font-medium text-lg py-3 px-4 rounded-full placeholder:text-gray-400'
+                        type="email"
+                        placeholder='Enter your email'
                     />
                     <input
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        required 
-                        className='w-full outline-none bg-transparent border-2 border-emerald-600 font-medium text-lg py-3 px-4 rounded-full placeholder:text-gray-400' 
-                        type="password" 
-                        placeholder='Enter password' 
+                        required
+                        className='w-full outline-none bg-transparent border-2 border-emerald-600 font-medium text-lg py-3 px-4 rounded-full placeholder:text-gray-400'
+                        type="password"
+                        placeholder='Enter password'
                     />
-                    <button 
+                    <button
                         type="submit"
                         disabled={isLoading}
-                        className={`mt-6 text-white border-none outline-none font-semibold text-lg py-3 px-8 w-full rounded-full transition-colors ${
-                            isLoading 
-                                ? 'bg-gray-400 cursor-not-allowed' 
+                        className={`mt-6 text-white border-none outline-none font-semibold text-lg py-3 px-8 w-full rounded-full transition-colors ${isLoading
+                                ? 'bg-gray-400 cursor-not-allowed'
                                 : 'bg-emerald-600 hover:bg-emerald-700'
-                        }`}
+                            }`}
                     >
                         {isLoading ? 'Logging in...' : `Log in as ${loginType === 'admin' ? 'Admin' : 'Employee'}`}
                     </button>
                 </form>
-                
+
                 {switchToSignup && loginType === 'admin' && (
                     <div className='text-center mt-6'>
                         <p className='text-gray-600'>
                             Don't have an admin account?{' '}
-                            <button 
+                            <button
                                 onClick={switchToSignup}
                                 className='text-emerald-600 hover:text-emerald-700 font-semibold underline'
                             >

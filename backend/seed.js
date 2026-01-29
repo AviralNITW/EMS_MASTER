@@ -141,7 +141,7 @@ const seedData = [
             active: false,
             completed: true,
             failed: false,
-            verificationStatus: 'approved',
+            verificationStatus: 'verified',
             verifiedAt: new Date('2024-01-14'),
             submittedDocuments: [{
               fileName: 'database-schema.pdf',
