@@ -3,10 +3,19 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import connectDB from './config/database.js';
-import employeeRoutes from './routes/employees.js';
-import adminRoutes from './routes/admin.js';
+import userRoutes from './routes/users.js';
+import taskRoutes from './routes/tasks.js';
+import leaveRoutes from './routes/leaves.js';
 import authRoutes from './routes/auth.js';
+import departmentRoutes from './routes/departments.js';
+import payrollRoutes from './routes/payroll.js';
+import attendanceRoutes from './routes/attendance.js';
+import announcementRoutes from './routes/announcements.js';
+import documentRoutes from './routes/documents.js';
+import configRoutes from './routes/config.js';
 import { protect, admin } from './middleware/auth.js';
+import swaggerUi from 'swagger-ui-express';
+import swaggerJsDoc from 'swagger-jsdoc';
 
 // Load environment variables
 dotenv.config();
@@ -40,10 +49,36 @@ app.use((req, res, next) => {
 // Public routes
 app.use('/api/auth', authRoutes);
 
-// Employee routes (public for now; endpoints themselves enforce workflow rules)
-app.use('/api/employees', employeeRoutes);
-// Admin routes remain protected
-app.use('/api/admin', protect, admin, adminRoutes);
+// Protected Unified Routes
+app.use('/api/users', userRoutes);
+app.use('/api/tasks', taskRoutes);
+app.use('/api/leaves', leaveRoutes);
+app.use('/api/departments', departmentRoutes);
+app.use('/api/payroll', payrollRoutes);
+app.use('/api/attendance', attendanceRoutes);
+app.use('/api/announcements', announcementRoutes);
+app.use('/api/documents', documentRoutes);
+app.use('/api/config', configRoutes);
+
+// Swagger Documentation setup
+const swaggerOptions = {
+  swaggerDefinition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'EMS API',
+      version: '1.0.0',
+      description: 'Employee Management System API Documentation',
+    },
+    servers: [
+      {
+        url: `http://localhost:${PORT}`,
+      },
+    ],
+  },
+  apis: ['./routes/*.js'],
+};
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
@@ -68,8 +103,12 @@ app.use('*', (req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  console.log(`Environment: ${process.env.NODE_ENV}`);
-  console.log(`Database: ${process.env.MONGODB_URI}`);
-});
+if (process.env.NODE_ENV !== 'production' || process.env.RENDER) {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+    console.log(`Environment: ${process.env.NODE_ENV}`);
+    console.log(`Database: ${process.env.MONGODB_URI}`);
+  });
+}
+
+export default app;
