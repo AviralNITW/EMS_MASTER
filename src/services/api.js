@@ -1,7 +1,7 @@
 // In src/services/api.js
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, '') ||
-  'http://localhost:5000'; // Defaulting to local backend, or adjust if on Render
+const API_BASE_URL = import.meta.env.PROD 
+  ? '' 
+  : (import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, '') || 'http://localhost:5000');
 
 const apiRequest = async (endpoint, options = {}) => {
   const normalizedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
