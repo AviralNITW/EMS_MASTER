@@ -1,7 +1,6 @@
 // In src/services/api.js
-const API_BASE_URL = import.meta.env.PROD 
-  ? '' 
-  : (import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, '') || 'http://localhost:5000');
+const isProd = import.meta.env.PROD;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, '') || (isProd ? '' : 'http://localhost:5000');
 
 const apiRequest = async (endpoint, options = {}) => {
   const normalizedEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
