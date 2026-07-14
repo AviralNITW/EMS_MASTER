@@ -32,6 +32,7 @@ app.use(cors({
     'http://localhost:5173',
     'http://localhost:5174',
     'https://ems-master-deft.onrender.com', // Render deployment
+    'https://ems-master.vercel.app', // Vercel deployment
     'https://aviralnitw.github.io', // GitHub Pages frontend
   ],
   credentials: true
