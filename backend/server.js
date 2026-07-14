@@ -27,14 +27,23 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'https://ems-master-deft.onrender.com',
+  'https://ems-master.vercel.app',
+  'https://aviralnitw.github.io'
+];
+
 app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'http://localhost:5174',
-    'https://ems-master-deft.onrender.com', // Render deployment
-    'https://ems-master.vercel.app', // Vercel deployment
-    'https://aviralnitw.github.io', // GitHub Pages frontend
-  ],
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('.vercel.app')) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 app.use(express.json());
