@@ -5,15 +5,12 @@ export default defineConfig({
   base: "/",
   plugins: [react()],
   build: {
-    // Use terser for better minification (smaller bundle)
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,   // Remove console.log in production
-        drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info'],
-      },
-    },
+    // Use esbuild for fast, native minification
+    minify: 'esbuild',
+  },
+  esbuild: {
+    drop: ['console', 'debugger'],
+  },
     // Split chunks for better caching
     rollupOptions: {
       output: {
