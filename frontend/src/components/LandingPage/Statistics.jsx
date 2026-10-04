@@ -4,7 +4,7 @@ import { Building2, Users, Zap, HeadphonesIcon } from 'lucide-react';
 import { cn } from './utils';
 
 const stats = [
-  { icon: Building2, value: '4', label: 'User Roles Supported', color: 'text-brand-purple' },
+  { icon: Building2, value: '4', label: 'User Roles Supported', color: 'text-brand-teal' },
   { icon: Users, value: '30+', label: 'HR Features Included', color: 'text-primary' },
   { icon: Zap, value: '100%', label: 'Secure Data Handling', color: 'text-secondary' },
   { icon: HeadphonesIcon, value: '24/7', label: 'System Availability', color: 'text-blue-400' },

@@ -158,8 +158,8 @@ const ManagerDashboard = ({ changeUser }) => {
       desc: l.employeeId?.firstName ? `${l.employeeId.firstName} ${l.employeeId.lastName}` : 'Employee',
       time: new Date(l.updatedAt || l.createdAt),
       icon: <CalendarDays size={14} />,
-      color: l.status.includes('Approved') ? 'text-emerald-400' : 'text-purple-400',
-      bg: l.status.includes('Approved') ? 'bg-emerald-400/10' : 'bg-purple-400/10'
+      color: l.status.includes('Approved') ? 'text-emerald-400' : 'text-teal-400',
+      bg: l.status.includes('Approved') ? 'bg-emerald-400/10' : 'bg-teal-400/10'
     })),
     ...tasks.map(t => ({
       title: `Task ${t.status.replace('_', ' ').toLowerCase()}`,
@@ -219,7 +219,7 @@ const ManagerDashboard = ({ changeUser }) => {
 
           <div className="mb-6 p-3 rounded-xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-between cursor-pointer hover:bg-gray-200 dark:hover:bg-white/10 transition-colors">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-purple-500 text-gray-900 dark:text-white flex items-center justify-center font-bold text-xs">
+              <div className="w-8 h-8 rounded-full bg-teal-500 text-gray-900 dark:text-white flex items-center justify-center font-bold text-xs">
                 {currentUser?.firstName?.charAt(0) || 'M'}
               </div>
               <div className="flex-1 overflow-hidden">
@@ -398,7 +398,7 @@ const ManagerDashboard = ({ changeUser }) => {
                       <p className="text-gray-500 dark:text-gray-400 text-xs font-medium mb-1">Team Performance</p>
                       <h3 className="text-3xl font-bold text-gray-900 dark:text-white">{avgTeamPerformance}%</h3>
                     </div>
-                    <div className="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-teal-500/10 text-teal-400 flex items-center justify-center">
                       <TrendingUp size={18} />
                     </div>
                   </div>
@@ -425,7 +425,7 @@ const ManagerDashboard = ({ changeUser }) => {
                   <div className="flex gap-4 mb-4 text-[10px] font-medium pl-4">
                     <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-emerald-500"></div>Completed</span>
                     <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-blue-500"></div>In Progress</span>
-                    <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-purple-500"></div>To Do</span>
+                    <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-teal-500"></div>To Do</span>
                   </div>
                   <div className="h-48 w-full">
                     <ResponsiveContainer width="100%" height="100%">
@@ -498,7 +498,7 @@ const ManagerDashboard = ({ changeUser }) => {
                   </div>
                   <div className="flex flex-col gap-4 flex-1">
                     {teamPerformance.map((emp, idx) => {
-                      const colors = ['bg-emerald-500', 'bg-blue-500', 'bg-yellow-500', 'bg-purple-500', 'bg-pink-500'];
+                      const colors = ['bg-emerald-500', 'bg-blue-500', 'bg-yellow-500', 'bg-teal-500', 'bg-pink-500'];
                       const hexColors = ['#10b981', '#3b82f6', '#f59e0b', '#8b5cf6', '#ec4899'];
                       const initials = emp.firstName?.charAt(0) || 'U';
                       
@@ -547,14 +547,14 @@ const ManagerDashboard = ({ changeUser }) => {
                     {tasks.slice(0, 4).map((task) => (
                       <div key={task._id} className="flex items-center justify-between p-2.5 rounded-lg hover:bg-white/[0.02] transition-colors group">
                         <div className="flex items-start gap-3">
-                          <div className={`mt-1 w-1.5 h-1.5 rounded-full ${task.status === 'Completed' || task.status === 'Verified' ? 'bg-emerald-500' : task.status === 'In_Progress' ? 'bg-blue-500' : 'bg-purple-500'}`}></div>
+                          <div className={`mt-1 w-1.5 h-1.5 rounded-full ${task.status === 'Completed' || task.status === 'Verified' ? 'bg-emerald-500' : task.status === 'In_Progress' ? 'bg-blue-500' : 'bg-teal-500'}`}></div>
                           <div>
                             <p className="text-xs font-semibold text-gray-200">{task.title}</p>
                             <p className="text-[10px] text-gray-500">{task.assignedTo?.firstName || 'Unassigned'} • {task.assignedTo?.department || 'Employee'}</p>
                           </div>
                         </div>
                         <div className="flex items-center gap-4">
-                          <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full border ${task.status === 'Completed' || task.status === 'Verified' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : task.status === 'In_Progress' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' : 'bg-purple-500/10 text-purple-400 border-purple-500/20'}`}>
+                          <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full border ${task.status === 'Completed' || task.status === 'Verified' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : task.status === 'In_Progress' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' : 'bg-teal-500/10 text-teal-400 border-teal-500/20'}`}>
                             {task.status.replace('_', ' ')}
                           </span>
                           <span className={`text-[9px] font-bold px-2 py-0.5 rounded ${task.priority === 'High' ? 'bg-red-500/10 text-red-400' : task.priority === 'Low' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-yellow-500/10 text-yellow-500'}`}>

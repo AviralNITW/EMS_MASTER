@@ -45,7 +45,7 @@ const Header = ({ changeUser }) => {
   return (
     <div className="flex justify-between items-center w-full bg-[#0a0f1e]/80 border border-white/[0.08] backdrop-blur-md p-6 rounded-2xl">
       <div className="flex items-center gap-4">
-        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-brand-purple flex items-center justify-center font-heading font-extrabold text-white text-lg shadow-[0_0_16px_rgba(124,92,255,0.3)]">
+        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-brand-teal flex items-center justify-center font-heading font-extrabold text-white text-lg shadow-[0_0_16px_rgba(13,115,119,0.3)]">
           {displayName.substring(0, 2).toUpperCase()}
         </div>
         <div>

@@ -1,4 +1,4 @@
-ï»¿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, MapPin, Briefcase, Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
 
@@ -44,7 +44,7 @@ const AboutSection = () => {
 
               {/* Profile Photo */}
               <div className="shrink-0">
-                <div className="w-28 h-28 md:w-32 md:h-32 rounded-2xl bg-gradient-to-br from-primary to-brand-purple p-[2px] shadow-[0_0_32px_rgba(124,92,255,0.3)]">
+                <div className="w-28 h-28 md:w-32 md:h-32 rounded-2xl bg-gradient-to-br from-primary to-brand-teal p-[2px] shadow-[0_0_32px_rgba(13,115,119,0.3)]">
                   <div className="w-full h-full rounded-2xl overflow-hidden bg-[#0a0f1e]">
                     <img
                       src={`${BASE}profile.jpg`}
@@ -76,14 +76,14 @@ const AboutSection = () => {
                   Aviral Mishra
                 </h3>
                 <p className="text-primary font-semibold text-sm mb-4">
-                  Full-Stack Developer Â· Solo Builder
+                  Full-Stack Developer · Solo Builder
                 </p>
 
                 {/* Meta info */}
                 <div className="flex flex-wrap justify-center sm:justify-start gap-x-5 gap-y-2 text-xs text-gray-400 mb-5">
                   <span className="flex items-center gap-1.5">
                     <GraduationCap size={13} className="text-primary" />
-                    NIT Warangal â€” MCA '27
+                    NIT Warangal — MCA '27
                   </span>
                   <span className="flex items-center gap-1.5">
                     <MapPin size={13} className="text-primary" />
@@ -91,12 +91,12 @@ const AboutSection = () => {
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Briefcase size={13} className="text-primary" />
-                    Full-Stack Â· AI Â· System Design
+                    Full-Stack · AI · System Design
                   </span>
                 </div>
 
                 <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-lg">
-                  I'm the solo developer behind EMS-master â€” an enterprise HR platform built with React, Node.js & MongoDB. I specialize in building scalable full-stack apps, real-time pipelines, and clean UX experiences.
+                  I'm the solo developer behind EMS-master — an enterprise HR platform built with React, Node.js & MongoDB. I specialize in building scalable full-stack apps, real-time pipelines, and clean UX experiences.
                 </p>
 
                 {/* Tech pills */}

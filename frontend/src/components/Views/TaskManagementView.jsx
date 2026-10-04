@@ -160,7 +160,7 @@ const TaskManagementView = ({ tasks, loading, onTaskAction, role, onAddClick }) 
         {role !== 'Employee' && (
           <button 
             onClick={onAddClick}
-            className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-gray-900 dark:text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors shadow-[0_0_20px_rgba(124,92,255,0.3)]"
+            className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-gray-900 dark:text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors shadow-[0_0_20px_rgba(13,115,119,0.3)]"
           >
             <Plus size={16} /> Assign Task
           </button>

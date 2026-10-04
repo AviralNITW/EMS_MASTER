@@ -18,8 +18,8 @@ const areaData = [
 ];
 
 const pieData = [
-  { name: 'Engineering', value: 42, color: '#5B8CFF' },
-  { name: 'Marketing', value: 18, color: '#A855F7' },
+  { name: 'Engineering', value: 42, color: '#0D7377' },
+  { name: 'Marketing', value: 18, color: '#14919B' },
   { name: 'HR', value: 15, color: '#FF7C5C' },
   { name: 'Sales', value: 15, color: '#34D399' },
   { name: 'Others', value: 10, color: '#9CA3AF' },
@@ -31,7 +31,7 @@ const HeroSection = ({ onGetStartedClick }) => {
       {/* Background Effects */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 -left-1/4 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] animate-blob" />
-        <div className="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-brand-purple/20 rounded-full blur-[120px] animate-blob animation-delay-2000" />
+        <div className="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-brand-teal/20 rounded-full blur-[120px] animate-blob animation-delay-2000" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-20" />
       </div>
 
@@ -58,9 +58,9 @@ const HeroSection = ({ onGetStartedClick }) => {
             <div className="flex flex-wrap items-center gap-4">
               <button 
                 onClick={onGetStartedClick}
-                className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-primary rounded-full overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(124,92,255,0.4)]"
+                className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-primary rounded-full overflow-hidden transition-transform hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(13,115,119,0.4)]"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-secondary to-brand-purple opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-secondary to-brand-teal opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span className="relative z-10 flex items-center gap-2">
                   Get Started Free <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </span>
@@ -86,7 +86,7 @@ const HeroSection = ({ onGetStartedClick }) => {
                 <Lock size={16} className="text-blue-400" /> Enterprise Secure
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-gray-300">
-                <Activity size={16} className="text-brand-purple" /> 99.9% Uptime
+                <Activity size={16} className="text-brand-teal" /> 99.9% Uptime
               </div>
             </div>
           </motion.div>
@@ -179,11 +179,11 @@ const HeroSection = ({ onGetStartedClick }) => {
                           <AreaChart data={areaData}>
                             <defs>
                               <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="5%" stopColor="#7C5CFF" stopOpacity={0.3}/>
-                                <stop offset="95%" stopColor="#7C5CFF" stopOpacity={0}/>
+                                <stop offset="5%" stopColor="#0D7377" stopOpacity={0.3}/>
+                                <stop offset="95%" stopColor="#0D7377" stopOpacity={0}/>
                               </linearGradient>
                             </defs>
-                            <Area type="monotone" dataKey="value" stroke="#7C5CFF" fillOpacity={1} fill="url(#colorValue)" />
+                            <Area type="monotone" dataKey="value" stroke="#0D7377" fillOpacity={1} fill="url(#colorValue)" />
                             <Tooltip contentStyle={{ backgroundColor: '#111827', borderColor: '#374151' }} />
                           </AreaChart>
                         </ResponsiveContainer>

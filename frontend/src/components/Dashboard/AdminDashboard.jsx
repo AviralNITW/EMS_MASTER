@@ -188,8 +188,8 @@ const AdminDashboard = ({ changeUser }) => {
       desc: l.employeeId?.firstName ? `${l.employeeId.firstName} ${l.employeeId.lastName}` : 'Employee',
       time: new Date(l.updatedAt || l.createdAt),
       icon: <CheckCircle2 size={14} />,
-      color: l.status.includes('Approved') ? 'text-emerald-400' : 'text-purple-400',
-      bg: l.status.includes('Approved') ? 'bg-emerald-400/10' : 'bg-purple-400/10'
+      color: l.status.includes('Approved') ? 'text-emerald-400' : 'text-teal-400',
+      bg: l.status.includes('Approved') ? 'bg-emerald-400/10' : 'bg-teal-400/10'
     })),
     ...tasks.map(t => ({
       title: `Task ${t.status.replace('_', ' ').toLowerCase()}`,
@@ -346,7 +346,7 @@ const AdminDashboard = ({ changeUser }) => {
               <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border border-[#0B0F19]"></span>
             </button>
             
-            <button className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-gray-900 dark:text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-[0_0_15px_rgba(124,92,255,0.3)]">
+            <button className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-gray-900 dark:text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-[0_0_15px_rgba(13,115,119,0.3)]">
               <Download size={16} />
               Export CSV
             </button>
@@ -540,7 +540,7 @@ const AdminDashboard = ({ changeUser }) => {
                             pendingLeaves.map(leave => (
                               <div key={leave._id} className="flex justify-between items-center group">
                                 <div className="flex items-center gap-3">
-                                  <div className="w-8 h-8 rounded bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                                  <div className="w-8 h-8 rounded bg-teal-500/10 text-teal-400 flex items-center justify-center">
                                     <CalendarDays size={14} />
                                   </div>
                                   <div>
@@ -667,7 +667,7 @@ const AdminDashboard = ({ changeUser }) => {
                           <span className="text-[10px] font-medium text-gray-500 dark:text-gray-400 text-center">Generate<br/>Report</span>
                         </div>
                         <div className="flex flex-col items-center gap-2 group cursor-pointer">
-                          <div className="w-12 h-12 rounded-full bg-purple-500/10 text-purple-400 flex items-center justify-center group-hover:bg-purple-500 group-hover:text-white transition-all">
+                          <div className="w-12 h-12 rounded-full bg-teal-500/10 text-teal-400 flex items-center justify-center group-hover:bg-teal-500 group-hover:text-white transition-all">
                             <Database size={20} />
                           </div>
                           <span className="text-[10px] font-medium text-gray-500 dark:text-gray-400 text-center">System<br/>Backup</span>

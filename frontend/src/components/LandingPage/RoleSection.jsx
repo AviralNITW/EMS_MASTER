@@ -16,7 +16,7 @@ const roles = [
     description: 'Assign tasks, track progress, review submissions, and manage your team effectively.',
     image: `${BASE}manager.png`,
     widget: { label: 'Team Progress', value: '85%', sub: '+12% this week' },
-    glow: 'rgba(124,92,255,0.15)',
+    glow: 'rgba(13,115,119,0.15)',
   },
   {
     title: 'Employees',
@@ -30,7 +30,7 @@ const roles = [
     description: 'Manage users, roles, permissions, and ensure system security and compliance.',
     image: `${BASE}admin.png`,
     widget: { label: 'System Health', value: '99.9%', sub: 'All Systems Operational' },
-    glow: 'rgba(124,92,255,0.15)',
+    glow: 'rgba(13,115,119,0.15)',
   },
 ];
 
@@ -60,14 +60,14 @@ const RoleSection = () => {
                 border: '1px solid rgba(255,255,255,0.06)',
               }}
               whileHover={{
-                borderColor: 'rgba(124,92,255,0.4)',
-                boxShadow: `0 0 32px ${role.glow}, inset 0 0 32px rgba(124,92,255,0.04)`,
+                borderColor: 'rgba(13,115,119,0.4)',
+                boxShadow: `0 0 32px ${role.glow}, inset 0 0 32px rgba(13,115,119,0.04)`,
               }}
             >
               {/* Top glow on hover */}
               <div
                 className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ background: 'linear-gradient(90deg, transparent, rgba(124,92,255,0.6), transparent)' }}
+                style={{ background: 'linear-gradient(90deg, transparent, rgba(13,115,119,0.6), transparent)' }}
               />
 
               {/* Text Content */}

@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import compression from 'compression';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import connectDB from './config/database.js';
@@ -50,9 +51,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// Simple request logger
+// Enable gzip/deflate compression for all responses (~60-80% smaller payloads)
+app.use(compression());
+
+// Add cache-control for GET API responses (10 second stale-while-revalidate)
 app.use((req, res, next) => {
-  console.log(`${req.method} ${req.path}`);
+  if (req.method === 'GET') {
+    res.set('Cache-Control', 'public, max-age=10, stale-while-revalidate=30');
+  }
   next();
 });
 

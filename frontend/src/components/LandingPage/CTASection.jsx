@@ -14,11 +14,11 @@ const CTASection = ({ onLoginClick }) => {
           className="relative overflow-hidden rounded-[32px] p-12 md:p-16 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8 bg-gradient-to-br from-[#111827] to-[#0A101C] border border-white/10 premium-shadow"
         >
           {/* Background Glow */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-brand-purple/20 rounded-full blur-[100px]" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-brand-teal/20 rounded-full blur-[100px]" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/20 rounded-full blur-[100px]" />
           
           <div className="relative z-10 flex items-center gap-6 md:gap-8 flex-col md:flex-row">
-            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-secondary to-brand-purple p-0.5 flex-shrink-0">
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-secondary to-brand-teal p-0.5 flex-shrink-0">
               <div className="w-full h-full bg-[#111827] rounded-[15px] flex items-center justify-center">
                 <Rocket size={32} className="text-white" />
               </div>
@@ -40,7 +40,7 @@ const CTASection = ({ onLoginClick }) => {
               onClick={onLoginClick}
               className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-primary rounded-full overflow-hidden transition-transform hover:scale-105 active:scale-95 w-full"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-secondary to-brand-purple opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-r from-secondary to-brand-teal opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="relative z-10 flex items-center gap-2">
                 Get Started Free <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </span>

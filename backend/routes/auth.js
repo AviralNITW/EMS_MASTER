@@ -24,21 +24,21 @@ const loginUser = async (req, res, roleContext) => {
     // Since we introduced matchPassword with bcrypt support, but old db has plain text
     // We will do a fallback for plain text to support legacy data during transition
     const isMatch = await user.matchPassword(password);
-    
+
     if (!isMatch) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
     const userResponse = user.toObject();
     delete userResponse.password;
-    
+
     const token = jwt.sign(
       { id: user._id.toString(), role: user.role, email: user.email },
       process.env.JWT_SECRET || 'your_jwt_secret',
       { expiresIn: process.env.JWT_EXPIRES_IN || '7d' }
     );
-    
-    res.json({ 
+
+    res.json({
       message: 'Login successful',
       user: { ...userResponse, token },
       userType: user.role, // Admin, HR, Manager, Employee
@@ -80,12 +80,12 @@ router.post('/admin/signup', [
     }
 
     const { email, password, name } = req.body;
-    
+
     // Strict Password Validation
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (!passwordRegex.test(password)) {
-      return res.status(400).json({ 
-        message: 'Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.' 
+      return res.status(400).json({
+        message: 'Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.'
       });
     }
 
@@ -105,8 +105,8 @@ router.post('/admin/signup', [
       process.env.JWT_SECRET || 'your_jwt_secret',
       { expiresIn: '7d' }
     );
-    
-    res.status(201).json({ 
+
+    res.status(201).json({
       message: 'Admin account created successfully',
       user: { ...newAdmin.toObject(), token },
       userType: 'Admin',
@@ -119,9 +119,7 @@ router.post('/admin/signup', [
 });
 
 // POST /api/auth/request-otp
-router.post('/request-otp', [
-  body('email').isEmail()
-], async (req, res) => {
+router.post('/request-otp', [body('email').isEmail()], async (req, res) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -137,9 +135,9 @@ router.post('/request-otp', [
 
     // Generate a 6-digit OTP
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
-    
-    // Set expiration to 10 minutes from now
-    const otpExpires = new Date(Date.now() + 10 * 60000);
+
+    // Set expiration to 2 minutes from now
+    const otpExpires = new Date(Date.now() + 2 * 60000);
 
     user.otp = otp;
     user.otpExpires = otpExpires;
@@ -228,14 +226,14 @@ router.post('/login-otp', [
     delete userResponse.password;
     delete userResponse.otp;
     delete userResponse.otpExpires;
-    
+
     const token = jwt.sign(
       { id: user._id.toString(), role: user.role, email: user.email },
       process.env.JWT_SECRET || 'your_jwt_secret',
       { expiresIn: process.env.JWT_EXPIRES_IN || '7d' }
     );
-    
-    res.json({ 
+
+    res.json({
       message: 'Login successful',
       user: { ...userResponse, token },
       userType: user.role,

@@ -34,7 +34,7 @@ const plans = [
     price: { monthly: 499, annually: 399 },
     description: 'For growing teams that need automation and deeper insights.',
     badge: 'Most Popular',
-    color: 'from-primary to-brand-purple',
+    color: 'from-primary to-brand-teal',
     features: [
       { text: 'Up to 100 employees', included: true },
       { text: 'Advanced attendance & GPS tracking', included: true },
@@ -48,7 +48,7 @@ const plans = [
       { text: 'SSO with Google/Microsoft', included: false },
     ],
     cta: 'Start 14-Day Free Trial',
-    ctaStyle: 'bg-gradient-to-r from-primary to-brand-purple text-white hover:shadow-[0_0_30px_rgba(124,92,255,0.4)]',
+    ctaStyle: 'bg-gradient-to-r from-primary to-brand-teal text-white hover:shadow-[0_0_30px_rgba(13,115,119,0.4)]',
   },
   {
     name: 'Business',
@@ -163,7 +163,7 @@ const PricingSection = ({ onSelectPlan }) => {
                 transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                 className={cn(
                   "w-5 h-5 rounded-full shadow-md",
-                  isAnnual ? "bg-gradient-to-r from-primary to-brand-purple ml-auto" : "bg-gray-400"
+                  isAnnual ? "bg-gradient-to-r from-primary to-brand-teal ml-auto" : "bg-gray-400"
                 )}
               />
             </button>
@@ -199,7 +199,7 @@ const PricingSection = ({ onSelectPlan }) => {
                 className={cn(
                   "relative flex flex-col rounded-2xl border p-6 transition-all duration-300",
                   isPopular
-                    ? "border-primary/40 bg-[#0d1225] shadow-[0_0_40px_rgba(124,92,255,0.15)] scale-[1.02]"
+                    ? "border-primary/40 bg-[#0d1225] shadow-[0_0_40px_rgba(13,115,119,0.15)] scale-[1.02]"
                     : "border-white/[0.08] bg-[#0a0f1e]/80 hover:border-white/20"
                 )}
               >
@@ -208,7 +208,7 @@ const PricingSection = ({ onSelectPlan }) => {
                   <div className={cn(
                     "absolute -top-3 left-1/2 -translate-x-1/2 text-[11px] font-bold px-4 py-1 rounded-full",
                     isPopular
-                      ? "bg-gradient-to-r from-primary to-brand-purple text-white"
+                      ? "bg-gradient-to-r from-primary to-brand-teal text-white"
                       : "bg-gradient-to-r from-secondary to-emerald-500 text-white"
                   )}>
                     {plan.badge}

@@ -37,7 +37,7 @@ const EmployeeManagementView = ({ users, loading, onAddClick, onDeleteClick, rol
       render: (row) => {
         const colors = {
           Admin: 'bg-red-500/10 text-red-500 border-red-500/20',
-          HR: 'bg-purple-500/10 text-purple-500 border-purple-500/20',
+          HR: 'bg-teal-500/10 text-teal-500 border-teal-500/20',
           Manager: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
           Employee: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
         };
@@ -98,7 +98,7 @@ const EmployeeManagementView = ({ users, loading, onAddClick, onDeleteClick, rol
         {(role === 'Admin' || role === 'HR') && (
           <button 
             onClick={onAddClick}
-            className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-gray-900 dark:text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors shadow-[0_0_20px_rgba(124,92,255,0.3)]"
+            className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-gray-900 dark:text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors shadow-[0_0_20px_rgba(13,115,119,0.3)]"
           >
             <Plus size={16} /> Add Employee
           </button>

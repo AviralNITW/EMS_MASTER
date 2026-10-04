@@ -103,7 +103,7 @@ const resources = [
     title: 'Help Center',
     description: 'Guides, FAQs, and video tutorials to get the most out of EMS-master.',
     link: '#',
-    color: 'text-purple-400',
+    color: 'text-teal-400',
   },
   {
     icon: Webhook,
@@ -125,7 +125,7 @@ const ResourcesSection = () => {
   return (
     <section id="resources" className="py-24 relative z-10">
       {/* Background */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-purple/8 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-teal/8 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/8 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-7xl relative">

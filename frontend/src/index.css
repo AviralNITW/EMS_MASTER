@@ -27,7 +27,7 @@ body {
   }
   
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#5B8CFF] to-[#A855F7];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0D7377] to-[#14919B];
   }
 
   .premium-shadow {

@@ -166,8 +166,8 @@ const HRDashboard = ({ changeUser }) => {
       desc: `${u.firstName} ${u.lastName}`,
       time: new Date(u.createdAt || u.joiningDate),
       icon: <UserPlus size={14} />,
-      color: 'text-purple-400',
-      bg: 'bg-purple-400/10'
+      color: 'text-teal-400',
+      bg: 'bg-teal-400/10'
     })),
     ...leaves.map(l => ({
       title: `Leave ${l.status.replace('_', ' ').toLowerCase()}`,
@@ -402,13 +402,13 @@ const HRDashboard = ({ changeUser }) => {
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#111827] rounded-xl p-5 border border-gray-200 dark:border-white/5 hover:border-purple-500/30 transition-colors">
+                <div className="bg-white dark:bg-[#111827] rounded-xl p-5 border border-gray-200 dark:border-white/5 hover:border-teal-500/30 transition-colors">
                   <div className="flex justify-between items-start mb-2">
                     <div>
                       <p className="text-gray-500 dark:text-gray-400 text-xs font-medium mb-1">Attendance Rate</p>
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{attendanceRate}%</h3>
                     </div>
-                    <div className="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-teal-500/10 text-teal-400 flex items-center justify-center">
                       <TrendingUp size={18} />
                     </div>
                   </div>
@@ -503,7 +503,7 @@ const HRDashboard = ({ changeUser }) => {
                   <h3 className="text-sm font-bold mb-4">Quick Actions</h3>
                   <div className="grid grid-cols-3 gap-3">
                     <div onClick={() => setIsUserModalOpen(true)} className="bg-gray-100 dark:bg-white/5 hover:bg-primary/10 border border-gray-200 dark:border-white/5 hover:border-primary/20 rounded-lg p-3 flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors group">
-                      <UserPlus size={18} className="text-purple-400 group-hover:text-primary" />
+                      <UserPlus size={18} className="text-teal-400 group-hover:text-primary" />
                       <span className="text-[9px] font-medium text-gray-500 dark:text-gray-400 text-center">Add<br/>Employee</span>
                     </div>
                     <div className="bg-gray-100 dark:bg-white/5 hover:bg-emerald-500/10 border border-gray-200 dark:border-white/5 hover:border-emerald-500/20 rounded-lg p-3 flex flex-col items-center justify-center gap-2 cursor-pointer transition-colors group">

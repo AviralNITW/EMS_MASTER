@@ -57,7 +57,7 @@ const DocumentsView = ({ role }) => {
 
   const getFileIconColor = (category) => {
     switch(category) {
-      case 'Policy': return 'text-purple-400 bg-purple-400/10';
+      case 'Policy': return 'text-teal-400 bg-teal-400/10';
       case 'Report': return 'text-emerald-400 bg-emerald-400/10';
       case 'Benefit': return 'text-blue-400 bg-blue-400/10';
       default: return 'text-gray-500 dark:text-gray-400 bg-gray-400/10';
@@ -75,7 +75,7 @@ const DocumentsView = ({ role }) => {
         {(role === 'Admin' || role === 'HR') && (
           <button 
             onClick={() => setShowUpload(!showUpload)}
-            className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-gray-900 dark:text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors shadow-[0_0_20px_rgba(124,92,255,0.3)]"
+            className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-gray-900 dark:text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors shadow-[0_0_20px_rgba(13,115,119,0.3)]"
           >
             {showUpload ? <X size={16} /> : <Upload size={16} />}
             {showUpload ? 'Cancel' : 'Upload Document'}

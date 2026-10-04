@@ -117,7 +117,7 @@ const SettingsView = () => {
                   <button 
                     type="submit"
                     disabled={loading}
-                    className="flex items-center gap-2 bg-primary hover:bg-primary/90 disabled:opacity-50 text-gray-900 dark:text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors shadow-[0_0_20px_rgba(124,92,255,0.3)]"
+                    className="flex items-center gap-2 bg-primary hover:bg-primary/90 disabled:opacity-50 text-gray-900 dark:text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors shadow-[0_0_20px_rgba(13,115,119,0.3)]"
                   >
                     <Save size={16} /> {loading ? 'Saving...' : 'Save Changes'}
                   </button>

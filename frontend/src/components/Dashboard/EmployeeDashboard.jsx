@@ -319,7 +319,7 @@ const EmployeeDashboard = ({ changeUser }) => {
                 <div className="bg-white dark:bg-[#111827] rounded-xl p-5 border border-gray-200 dark:border-white/5 flex flex-col justify-between h-[100px]">
                   <div className="flex justify-between items-start">
                     <p className="text-gray-500 dark:text-gray-400 text-xs font-semibold">Verification</p>
-                    <div className="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-500 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-teal-500/10 text-teal-500 flex items-center justify-center">
                       <Shield size={16} />
                     </div>
                   </div>
@@ -439,8 +439,8 @@ const EmployeeDashboard = ({ changeUser }) => {
                       <span className="text-yellow-500">&rarr;</span>
 
                       <div className="flex flex-col items-center gap-3">
-                        <div className="w-12 h-12 rounded-full bg-purple-500/20 border-2 border-purple-500 flex items-center justify-center shadow-[0_0_15px_rgba(139,92,246,0.3)]">
-                          <Shield size={20} className="text-purple-500" />
+                        <div className="w-12 h-12 rounded-full bg-teal-500/20 border-2 border-teal-500 flex items-center justify-center shadow-[0_0_15px_rgba(139,92,246,0.3)]">
+                          <Shield size={20} className="text-teal-500" />
                         </div>
                         <div className="text-center">
                           <p className="text-lg font-bold text-gray-900 dark:text-white">{tasksVerification}</p>
@@ -448,7 +448,7 @@ const EmployeeDashboard = ({ changeUser }) => {
                         </div>
                       </div>
 
-                      <span className="text-purple-500">&rarr;</span>
+                      <span className="text-teal-500">&rarr;</span>
 
                       <div className="flex flex-col items-center gap-3">
                         <div className="w-12 h-12 rounded-full bg-emerald-500/20 border-2 border-emerald-500 flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.3)]">
@@ -690,12 +690,12 @@ const EmployeeDashboard = ({ changeUser }) => {
                         <p className="text-[9px] text-blue-600/80 font-medium mt-1">Available</p>
                       </div>
 
-                      <div className="bg-purple-500/5 border border-purple-500/10 rounded-lg p-3">
-                        <div className="flex items-center gap-1.5 text-purple-500 text-[10px] font-semibold mb-2">
+                      <div className="bg-teal-500/5 border border-teal-500/10 rounded-lg p-3">
+                        <div className="flex items-center gap-1.5 text-teal-500 text-[10px] font-semibold mb-2">
                           <Briefcase size={12}/> Comp Off
                         </div>
                         <h4 className="text-2xl font-bold text-gray-900 dark:text-white leading-none">{compOffBal} <span className="text-[10px] text-gray-500 font-normal">days</span></h4>
-                        <p className="text-[9px] text-purple-600/80 font-medium mt-1">Available</p>
+                        <p className="text-[9px] text-teal-600/80 font-medium mt-1">Available</p>
                       </div>
                     </div>
                   </div>

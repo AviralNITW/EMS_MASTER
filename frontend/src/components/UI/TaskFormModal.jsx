@@ -98,7 +98,7 @@ const TaskFormModal = ({ isOpen, onClose, onSuccess, currentRole }) => {
             </div>
           </div>
           <div className="pt-2">
-            <button type="submit" disabled={loading} className="w-full bg-primary hover:bg-primary/90 text-gray-900 dark:text-white font-semibold py-3 rounded-xl shadow-[0_0_20px_rgba(124,92,255,0.3)] transition-colors disabled:opacity-50">
+            <button type="submit" disabled={loading} className="w-full bg-primary hover:bg-primary/90 text-gray-900 dark:text-white font-semibold py-3 rounded-xl shadow-[0_0_20px_rgba(13,115,119,0.3)] transition-colors disabled:opacity-50">
               {loading ? 'Assigning...' : 'Assign Task'}
             </button>
           </div>

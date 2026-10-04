@@ -19,7 +19,7 @@ const AllTask = ({ employees = [] }) => {
               <th className="p-4 font-heading font-bold text-gray-400">Employee</th>
               <th className="p-4 text-center font-heading font-bold text-blue-400">New</th>
               <th className="p-4 text-center font-heading font-bold text-yellow-400">Active</th>
-              <th className="p-4 text-center font-heading font-bold text-purple-400">Pending</th>
+              <th className="p-4 text-center font-heading font-bold text-teal-400">Pending</th>
               <th className="p-4 text-center font-heading font-bold text-emerald-400">Done</th>
               <th className="p-4 text-center font-heading font-bold text-rose-400">Failed</th>
               <th className="p-4 text-center font-heading font-bold text-white">Total</th>
@@ -53,7 +53,7 @@ const AllTask = ({ employees = [] }) => {
                   </td>
                   <td className="p-4 text-center font-bold text-blue-400">{taskCounts.newTask}</td>
                   <td className="p-4 text-center font-bold text-yellow-400">{taskCounts.active}</td>
-                  <td className="p-4 text-center font-bold text-purple-400">
+                  <td className="p-4 text-center font-bold text-teal-400">
                     {taskCounts.pendingVerification || 0}
                   </td>
                   <td className="p-4 text-center font-bold text-emerald-400">{taskCounts.completed}</td>

@@ -17,7 +17,7 @@ const AdminToggle = ({ activeTab, onTabChange }) => {
               onClick={() => onTabChange(tab.id)}
               className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-xs font-semibold transition-all duration-200 ${
                 activeTab === tab.id
-                  ? 'bg-gradient-to-r from-primary to-brand-purple text-white shadow-lg'
+                  ? 'bg-gradient-to-r from-primary to-brand-teal text-white shadow-lg'
                   : 'text-gray-400 hover:text-white hover:bg-white/[0.04]'
               }`}
             >

@@ -30,14 +30,14 @@ const Navbar = ({ onLoginClick }) => {
           "border border-white/[0.08]",
           "backdrop-blur-xl",
           isScrolled
-            ? "bg-[#0a0f1e]/80 shadow-[0_8px_32px_rgba(0,0,0,0.4),0_0_0_1px_rgba(124,92,255,0.1)] py-3 px-6"
+            ? "bg-[#0a0f1e]/80 shadow-[0_8px_32px_rgba(0,0,0,0.4),0_0_0_1px_rgba(13,115,119,0.1)] py-3 px-6"
             : "bg-white/[0.03] shadow-[0_4px_24px_rgba(0,0,0,0.2)] py-4 px-8"
         )}
       >
         {/* Subtle gradient border glow on scroll */}
         <div className={cn(
           "absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 pointer-events-none",
-          "bg-gradient-to-r from-primary/20 via-transparent to-brand-purple/20",
+          "bg-gradient-to-r from-primary/20 via-transparent to-brand-teal/20",
           isScrolled && "opacity-100"
         )} />
 
@@ -77,7 +77,7 @@ const Navbar = ({ onLoginClick }) => {
                 className="relative px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-all duration-200 rounded-xl hover:bg-white/[0.06] group"
               >
                 {link}
-                <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-primary to-brand-purple rounded-full group-hover:w-4 transition-all duration-300" />
+                <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-primary to-brand-teal rounded-full group-hover:w-4 transition-all duration-300" />
               </button>
             ))}
           </div>
@@ -86,10 +86,10 @@ const Navbar = ({ onLoginClick }) => {
           <div className="hidden md:flex items-center gap-4">
             <button
               onClick={onLoginClick}
-              className="group relative inline-flex items-center justify-center px-5 py-2 text-sm font-semibold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_0_20px_rgba(124,92,255,0.4)]"
+              className="group relative inline-flex items-center justify-center px-5 py-2 text-sm font-semibold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_0_20px_rgba(13,115,119,0.4)]"
             >
               {/* Button gradient background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-brand-purple rounded-xl" />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-brand-teal rounded-xl" />
               {/* Shimmer effect on hover */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
               <span className="relative z-10">Book a Demo</span>
@@ -137,7 +137,7 @@ const Navbar = ({ onLoginClick }) => {
                       onLoginClick();
                       setIsMobileMenuOpen(false);
                     }}
-                    className="w-full py-3 bg-gradient-to-r from-primary to-brand-purple text-white rounded-xl font-semibold text-sm"
+                    className="w-full py-3 bg-gradient-to-r from-primary to-brand-teal text-white rounded-xl font-semibold text-sm"
                   >
                     Book a Demo
                   </button>

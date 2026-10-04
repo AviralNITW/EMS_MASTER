@@ -183,9 +183,9 @@ const Signup = ({ handleSignup, switchToLogin }) => {
           <button
             type="submit"
             disabled={isLoading}
-            className="group relative inline-flex items-center justify-center py-3.5 px-8 w-full rounded-xl text-sm font-semibold text-white overflow-hidden transition-all duration-300 bg-primary hover:scale-[1.02] active:scale-95 hover:shadow-[0_0_24px_rgba(124,92,255,0.45)]"
+            className="group relative inline-flex items-center justify-center py-3.5 px-8 w-full rounded-xl text-sm font-semibold text-white overflow-hidden transition-all duration-300 bg-primary hover:scale-[1.02] active:scale-95 hover:shadow-[0_0_24px_rgba(13,115,119,0.45)]"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary to-brand-purple" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary to-brand-teal" />
             <span className="relative z-10 flex items-center gap-2">
               {isLoading ? 'Processing...' : 'Sign Up & Verify'}
               {!isLoading && <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />}

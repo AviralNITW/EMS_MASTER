@@ -45,7 +45,7 @@ export const openRazorpayCheckout = async ({ amount, planName, onPaymentSuccess,
       plan: planName,
     },
     theme: {
-      color: '#7C5CFF', // EMS Primary Color
+      color: '#0D7377', // EMS Primary Color
     },
   };
   const rzp = new window.Razorpay(options);

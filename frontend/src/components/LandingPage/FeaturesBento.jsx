@@ -11,7 +11,7 @@ const BentoCard = ({ title, description, icon: Icon, children, className }) => (
       className
     )}
   >
-    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-brand-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-brand-teal/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     
     <div className="flex items-start justify-between relative z-10">
       <div className="flex flex-col gap-2">
@@ -53,7 +53,7 @@ const FeaturesBento = () => {
             <div className="flex flex-col gap-3 mt-4 h-full bg-black/20 rounded-xl p-4 border border-white/5">
               {[
                 { r: 'Admin', d: 'Full Access', c: 'bg-blue-500' },
-                { r: 'HR Manager', d: 'Manage HR Operations', c: 'bg-purple-500' },
+                { r: 'HR Manager', d: 'Manage HR Operations', c: 'bg-teal-500' },
                 { r: 'Team Manager', d: 'Manage Team', c: 'bg-green-500' },
                 { r: 'Employee', d: 'Views Only', c: 'bg-gray-500' }
               ].map(role => (
@@ -130,7 +130,7 @@ const FeaturesBento = () => {
           >
              <div className="flex items-end justify-center gap-2 h-24 mt-4 opacity-50 hover:opacity-100 transition-opacity">
                {[40, 70, 45, 90, 65, 30].map((h, i) => (
-                 <div key={i} className="w-8 rounded-t-sm bg-gradient-to-t from-primary/20 to-brand-purple" style={{ height: `${h}%` }} />
+                 <div key={i} className="w-8 rounded-t-sm bg-gradient-to-t from-primary/20 to-brand-teal" style={{ height: `${h}%` }} />
                ))}
              </div>
           </BentoCard>
